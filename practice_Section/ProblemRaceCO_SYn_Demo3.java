@@ -4,10 +4,11 @@ public class ProblemRaceCO_SYn_Demo3 {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		Bank_Account Task = new Bank_Account();
+		BankDemo Task = new BankDemo();
 		
 		First_Thread Task_1 = new First_Thread(Task);
 		Second_Thread Task_2 = new Second_Thread(Task);
+	
 		
 		Task_1.start();
 		Task_2.start();
@@ -24,7 +25,7 @@ public class ProblemRaceCO_SYn_Demo3 {
 class Bank_Account {
 	int Count;
 
-	public synchronized void Incress() {
+	public void Incress() {
 		this.Count++;
 	}
 
@@ -35,9 +36,9 @@ class Bank_Account {
 
 class First_Thread extends Thread {
 
-	Bank_Account count;
+	BankDemo count;
 
-	public First_Thread(Bank_Account count) {
+	public First_Thread(BankDemo count) {
 		this.count = count;
 	}
 
@@ -56,9 +57,9 @@ class First_Thread extends Thread {
 }
 
 class Second_Thread extends Thread {
-	Bank_Account count;
+	BankDemo count;
 
-	public Second_Thread(Bank_Account count) {
+	public Second_Thread(BankDemo count) {
 		this.count = count;
 	}
 
